@@ -17,8 +17,19 @@ public class FahrenheitCelsius{
      public static void main(String[] args){
        try{
        
+           for (int i=0; i<args.length; i++){
+                
+                //convertir en entiers
+                int j=Integer.parseInt(args[i]);  
+                double c = fahrenheitEnCelsius(j);
       
-       }catch(NumberFormatException nfe){
+                 //Le résultat est attendu avec un seul chiffre derrière la virgule
+                 c = ((int)c*10)/10.0;
+                 System.out.println(args[i] + "\u00B0F -> " + c + "\u00B0C");
+            }
+       
+        }
+       catch(NumberFormatException nfe){
            System.out.println("error : " + nfe.getMessage());  // en cas d'erreur 
        }
        
@@ -29,10 +40,15 @@ public class FahrenheitCelsius{
       *   @param f la valeur en degré Fahrenheit
       *   @return  la conversion en degré Celsius
       */
-     public static float fahrenheitEnCelsius( int f){
+     public static double fahrenheitEnCelsius( int f){
        // ...
-       return 0.F;	// à compléter	en remplaçant la valeur retournée par la fonction de conversion
+       //return 0.F;    // à compléter    en remplaçant la valeur retournée par la fonction de conversion
        // ...
-     }
+       
+                 //La formule de conversion : °C = 5/9 * (°F -32)
+
+         double celsius =(( 5 *(f - 32.0)) / 9.0);
+         return celsius;
+     } 
 
 }
